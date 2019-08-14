@@ -1,0 +1,29 @@
+<div class="mb-3 d-flex align-items-center justify-content-start">
+  <span *ngIf="(report | async).id">Report ID: {{(report | async).id}}</span>
+  <span *ngIf="(report | async).basicInfo && (report | async).basicInfo.childName">{{(report | async).basicInfo.childName}}</span>
+
+  <button kendoButton class="ml-auto" [routerLink]="'/app/report/list'">Back to list</button>
+</div>
+
+<kendo-tabstrip>
+  <kendo-tabstrip-tab [selected]="true">
+    <ng-template kendoTabTitle>
+      <div class="dot mr-2" [ngClass]="{'dot--red': form.get('basicInfo').invalid, 'dot--green': form.get('basicInfo').valid}"></div> Basic info
+    </ng-template>
+    <ng-template kendoTabContent>
+      <app-basic-info [form]="form.get('basicInfo')"></app-basic-info>
+    </ng-template>
+  </kendo-tabstrip-tab>
+  <kendo-tabstrip-tab>
+    <ng-template kendoTabTitle>
+      <div class="dot mr-2" [ngClass]="{'dot--red': form.get('allegation').invalid, 'dot--green': form.get('allegation').valid}"></div> Allegation
+    </ng-template>
+    <ng-template kendoTabContent>
+      <app-alegation [form]="form.get('allegation')"></app-alegation>
+    </ng-template>
+  </kendo-tabstrip-tab>
+</kendo-tabstrip>
+
+<div class="d-flex align-items-center justify-content-end">
+  <button kendoButton primary="true" (click)="saveReport()">Save</button>
+</div>

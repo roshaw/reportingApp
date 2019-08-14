@@ -1,0 +1,29 @@
+.dot {
+  width: 14px;
+  height: 14px;
+  position: relative;
+
+  &:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 14px;
+    height: 14px;
+    content: '';
+    border-radius: 50%;
+  }
+  &--red {
+    &:after {
+      background: red;
+    }
+  }
+  &--green {
+    &:after {
+      background: green;
+    }
+  }
+}
+
+/*::ng-deep .k-link {
+  background: pink;
+}*/

@@ -1,0 +1,33 @@
+<div class="container" [formGroup]="form">
+  <div class="m-5 row">
+    <div class="col-lg-6 mb-3">
+      <kendo-textbox-container class="width-100" floatingLabel="Child name">
+        <input kendoTextBox formControlName="childName"/>
+      </kendo-textbox-container>
+    </div>
+    <div class="col-lg-6 mb-3">
+      <kendo-textbox-container class="width-100 " floatingLabel="Date of birth">
+        <kendo-datepicker format="dd MMM yyyy"  formControlName="dateOfBirth"></kendo-datepicker>
+      </kendo-textbox-container>
+    </div>
+    <div class="col-lg-6 mb-3">
+      <kendo-textbox-container class="width-100" floatingLabel="Gender">
+        <kendo-dropdownlist [data]="genderList"
+                            textField="name"
+                            valueField="value"
+                            valuePrimitive="true"
+                            formControlName="gender"></kendo-dropdownlist>
+      </kendo-textbox-container>
+    </div>
+    <div class="col-lg-6 mb-3">
+      <label class="k-form-field mt-3 mr-3">
+        <input type="checkbox" id="disability" class="k-checkbox" formControlName="disability">
+        <label class="k-checkbox-label" for="disability">Disability</label>
+      </label>
+      <label class="k-form-field mt-3">
+        <input type="checkbox" id="atsi" class="k-checkbox" formControlName="atsi">
+        <label class="k-checkbox-label" for="atsi">ATSI</label>
+      </label>
+    </div>
+  </div>
+</div>

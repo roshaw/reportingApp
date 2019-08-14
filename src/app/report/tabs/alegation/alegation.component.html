@@ -1,0 +1,21 @@
+<div class="container" [formGroup]="form">
+  <div class="m-5 row">
+    <div class="col-lg-6 mb-3">
+      <kendo-textbox-container class="width-100" floatingLabel="Perpetrator name">
+        <input kendoTextBox formControlName="perpetratorName"/>
+      </kendo-textbox-container>
+    </div>
+    <div class="col-lg-6 mb-3">
+      <kendo-textbox-container class="width-100" floatingLabel="Status of the alleged perpetrator">
+        <kendo-dropdownlist [data]="perpetratorStatuses"
+                            valuePrimitive="true"
+                            formControlName="perpetratorStatus"></kendo-dropdownlist>
+      </kendo-textbox-container>
+    </div>
+    <div class="col-lg-6 mb-3">
+      <kendo-textbox-container class="width-100" floatingLabel="Department/Program number and office">
+        <input kendoTextBox formControlName="deptNumberOfOffice"/>
+      </kendo-textbox-container>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="mt-5 mb-3 d-flex align-items-center justify-content-end">
+  <button kendoButton [primary]="true" (click)="createNewReport()">Create new report</button>
+</div>
+
+<kendo-grid [data]="gridData"
+            [sortable]="sortConfig"
+            (sortChange)="sortChange($event)"
+            (dataStateChange)="dataStateChange($event)"
+            filterable="menu"
+            [filter]="state.filter"
+            [sort]="sort">
+  <kendo-grid-column title="Id" field="id" sortable="true" filter="numeric"></kendo-grid-column>
+  <kendo-grid-column title="Child name" field="basicInfo.childName" sortable="true"></kendo-grid-column>
+  <kendo-grid-column title="Date of birth"
+                     field="dateOfBirthAsDate"
+                     sortable="true"
+                     filter="date"
+                     format="{0:dd MMM yyyy}"></kendo-grid-column>
+  <kendo-grid-column title="Allegation" field="basicInfo.allegation" sortable="true"></kendo-grid-column>
+
+  <kendo-grid-column [width]="80">
+    <ng-template kendoGridCellTemplate let-dataItem>
+      <button kendoButton (click)="editReport(dataItem.id)">Edit</button>
+    </ng-template>
+  </kendo-grid-column>
+</kendo-grid>
